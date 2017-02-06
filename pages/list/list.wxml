@@ -1,0 +1,24 @@
+
+
+<view>
+<text class="header">{{ type }}</text>
+<scroll-view scroll-y="true"  style="height: {{ windowHeight }}px;" bindscrolltolower="handleScrolltolower">
+    <block wx:for="{{ subjects }}">
+        <view class="subject-item">
+            <view class="item-main">
+                    <image src="{{ item.images.large }}"></image>
+                    <view class="item-txt">
+                        <text>{{ item.title }}</text>
+                        <text class="item-subtitle">{{ item.directors[0].name }}</text>
+                    </view>
+                    </view>
+                    <text class="item-stars">{{ item.rating.average}}</text>
+        </view>
+    </block>
+    <view class="footer">
+        <image src="../../images/loading.gif" style="width:45rpx;height:45rpx"></image>
+        <text>正在努力加载更多数据</text>
+    </view>
+    </scroll-view>
+    <loading hidden="{{ !loading}}">加载中...</loading>
+</view>
